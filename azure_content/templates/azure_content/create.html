@@ -1,0 +1,36 @@
+{% extends "azure_content/base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content%}
+
+  <div class="holder"> 
+        <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        
+        <div class="shadowholder">
+            <div class="subtitel2"> 
+                <div> <i class="fas fa-sticky-note icon"></i> Create a new project </div>
+            </div>
+                <div class="content mb-3"> 
+                
+                        {{ form.name|as_crispy_field }} 
+                        {{ form.description|as_crispy_field }}
+                </div>
+        </div>
+        <button type="submit">Conform</button>
+         
+    </form>
+    </div>
+
+
+{% endblock content%}
+
+<!-- {{ form.name|as_crispy_field }} is a template filter provided by the Django Crispy Forms library.
+
+It renders the form field with:
+
+Clean, semantic HTML
+
+Bootstrap-compatible structure (or other supported frameworks)
+
+Error messages, help text, and proper wrapping all automatically included -->
